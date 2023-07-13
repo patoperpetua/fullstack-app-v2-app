@@ -6,7 +6,24 @@ This project and [companion website](https://fullstack-v2-instructions.vercel.ap
 
 ## Getting Started
 
-First, run the development server:
+### First time running the project
+
+You need to copy .env.sample file into .env file in the root project and provide the following values:
+
+```bash
+# You can get a free testing postgres db at https://railway.app/
+DATABASE_URL=""
+JWT_SECRET="it_can_be_any_string_you_like"
+COOKIE_NAME="__project_app__"
+```
+
+The thing is to populate the database with schemas and test data.
+
+```bash
+prisma migrate reset
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
