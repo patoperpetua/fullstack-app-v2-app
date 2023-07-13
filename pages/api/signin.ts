@@ -11,9 +11,13 @@ export default async function signin(req: NextApiRequest, res: NextApiResponse) 
       }
     })
 
-    console.log(req.body.password, user?.password)
+    if(!user) {
+      res.status(401);
+      res.json({})
+    }
+
     const isUser = await comparePasswords(req.body.password, user?.password)
-    
+
     if (isUser) {
       const jwt = await createJWT(user);
 
